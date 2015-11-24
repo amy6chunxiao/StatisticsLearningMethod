@@ -14,10 +14,6 @@ public class Example extends RealVector {
 
 	private String label;
 
-	public Example(List<Double> data) {
-		super(data);
-	}
-
 	public Example(List<Double> data, String label) {
 		super(data);
 		this.label = label;
