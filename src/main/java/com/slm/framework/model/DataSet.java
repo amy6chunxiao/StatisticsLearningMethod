@@ -1,7 +1,5 @@
 package com.slm.framework.model;
 
-import org.apache.log4j.Logger;
-
 public abstract class DataSet {
 	private int rowNum;
 	private int colNum;

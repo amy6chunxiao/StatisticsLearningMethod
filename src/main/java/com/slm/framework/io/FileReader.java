@@ -26,7 +26,7 @@ public class FileReader {
 	 * @param 文件存放绝对路径
 	 * @return 字符串数组，源文件每一行数据对应数组每个元素
 	 */
-	public static String[] readFile(String src) {
+	public String[] readFile(String src) {
 		List<String> content = new ArrayList<>();
 		try {
 			FileInputStream fis = new FileInputStream(new File(src));

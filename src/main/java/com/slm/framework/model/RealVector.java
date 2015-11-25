@@ -12,6 +12,14 @@ public class RealVector {
 	private List<Double> data;
 	private int size;
 
+	public RealVector(double[] data) {
+		this.data = new ArrayList<>();
+		this.size = data.length;
+		for (double d : data) {
+			this.data.add(d);
+		}
+	}
+
 	public RealVector(List<Double> data) {
 		this(data, data.size());
 	}
@@ -61,7 +69,8 @@ public class RealVector {
 	public RealVector productByElements(RealVector realVector)
 			throws DataErrorFormatException {
 		if (realVector.size() != size) {
-			throw new DataErrorFormatException("two realvectors size are not equal");
+			throw new DataErrorFormatException(
+					"two realvectors size are not equal");
 		}
 
 		List<Double> data2 = realVector.getData();
@@ -75,16 +84,18 @@ public class RealVector {
 
 	public RealVector productByElements(double num) {
 
-		List<Double> resultData=new ArrayList<>();
+		List<Double> resultData = new ArrayList<>();
 		for (int i = 0; i < size; i++) {
-			resultData.add( num * data.get(i));
+			resultData.add(num * data.get(i));
 		}
 		return new RealVector(resultData);
 	}
 
-	public double product(RealVector realVector) throws DataErrorFormatException {
+	public double product(RealVector realVector)
+			throws DataErrorFormatException {
 		if (realVector.size() != size) {
-			throw new DataErrorFormatException("two realvectors size are not equal");
+			throw new DataErrorFormatException(
+					"two realvectors size are not equal");
 		}
 		double result = 0;
 		List<Double> data2 = realVector.getData();
@@ -94,9 +105,11 @@ public class RealVector {
 		return result;
 	}
 
-	public RealVector addByElements(RealVector realVector) throws DataErrorFormatException {
+	public RealVector addByElements(RealVector realVector)
+			throws DataErrorFormatException {
 		if (realVector.size() != size) {
-			throw new DataErrorFormatException("two realvectors size are not equal");
+			throw new DataErrorFormatException(
+					"two realvectors size are not equal");
 		}
 		List<Double> data2 = realVector.getData();
 		List<Double> resultData = new ArrayList<>();
