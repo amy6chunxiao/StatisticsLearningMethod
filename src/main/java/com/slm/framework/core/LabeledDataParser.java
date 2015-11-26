@@ -18,7 +18,7 @@ public class LabeledDataParser implements DataParser {
 		for (String strData : data) {
 			String[] datasAndLabel = strData.split(Data.labelSeparator);
 
-			if (datasAndLabel == null || data.length != 2)
+			if (datasAndLabel == null || datasAndLabel.length != 2)
 				throw new ParseErrorException();
 
 			String[] datas = datasAndLabel[0].split(Data.dataSeparator);

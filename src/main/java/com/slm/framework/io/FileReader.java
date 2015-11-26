@@ -45,6 +45,6 @@ public class FileReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return (String[]) content.toArray();
+		return content.toArray(new String[content.size()]);
 	}
 }
