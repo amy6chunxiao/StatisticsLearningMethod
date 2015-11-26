@@ -1,4 +1,4 @@
-package com.slm.framework.util;
+package com.slm.framework.common;
 
 import java.util.List;
 import com.slm.framework.exceptions.DataErrorFormatException;

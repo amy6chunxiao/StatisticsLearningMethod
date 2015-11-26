@@ -1,4 +1,4 @@
-package com.slm.framework.util;
+package com.slm.framework.common;
 
 public class NumberFormatConverter {
 	public static double[] StringArrayToDouble(String[] strs) {

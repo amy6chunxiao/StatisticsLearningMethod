@@ -5,6 +5,8 @@ import com.slm.framework.exceptions.ParseErrorException;
 import com.slm.framework.interfaces.DataFactory;
 import com.slm.framework.interfaces.DataParser;
 import com.slm.framework.io.FileReader;
+import com.slm.framework.model.DataSet;
+import com.slm.framework.model.LabeledDataSet;
 import com.slm.framework.model.UnLabeledDataSet;
 
 public class UnLabeledDataFactory implements DataFactory {
@@ -20,7 +22,11 @@ public class UnLabeledDataFactory implements DataFactory {
 	@Override
 	public UnLabeledDataSet getData(String src) throws ParseErrorException {
 		String[] strData = fileReader.readFile(src);
-		UnLabeledDataSet dataset = (UnLabeledDataSet) dataParser.parse(strData);
-		return dataset;
+		DataSet dataset = dataParser.parse(strData);
+		if(dataset instanceof LabeledDataSet){
+			return (UnLabeledDataSet)dataset;
+		}else{
+			throw new ParseErrorException();
+		}
 	}
 }
