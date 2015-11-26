@@ -5,15 +5,13 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-public class UnLabeledDataSet extends DataSet{
+public class UnLabeledDataSet extends DataSet {
 	private final Logger log = Logger.getLogger(UnLabeledDataSet.class);
 	private List<RealVector> data;
 
 	public UnLabeledDataSet(List<RealVector> data) {
 		this.data = data;
-		setRowNum(data.size());
-		setColNum(data.isEmpty() ? 0 : data.get(0).size());
-		log.info("init dataset:" + data);
+		setRowColNum();
 	}
 
 	public UnLabeledDataSet(RealVector[] data) {
@@ -22,8 +20,17 @@ public class UnLabeledDataSet extends DataSet{
 		for (RealVector example : data) {
 			this.data.add(example);
 		}
-		setRowNum(data.length);
-		setColNum(data[0] == null ? 0 : data[0].size());
-		log.info("init dataset"+data);
+		setRowColNum();
+	}
+
+	private void setRowColNum() {
+		setRowNum(data.size());
+		setColNum(data.isEmpty() ? 0 : data.get(0).size());
+		log.info("init dataset:" + data);
+	}
+
+	public UnLabeledDataSet subDataSet(int fromIndex, int toIndex) {
+		List<RealVector> subData = data.subList(fromIndex, toIndex);
+		return new UnLabeledDataSet(subData);
 	}
 }

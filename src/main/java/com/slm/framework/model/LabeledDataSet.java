@@ -11,9 +11,7 @@ public class LabeledDataSet extends DataSet {
 
 	public LabeledDataSet(List<Example> data) {
 		this.data = data;
-		setRowNum(data.size());
-		setColNum(data.isEmpty() ? 0 : data.get(0).size());
-		log.info("init dataset:" + data);
+		setRowColNum();
 	}
 
 	public LabeledDataSet(Example[] data) {
@@ -22,9 +20,17 @@ public class LabeledDataSet extends DataSet {
 		for (Example example : data) {
 			this.data.add(example);
 		}
-		setRowNum(data.length);
-		setColNum(data[0] == null ? 0 : data[0].size());
-		log.info("init dataset"+data);
+		setRowColNum();
 	}
-	
+
+	private void setRowColNum() {
+		setRowNum(data.size());
+		setColNum(data.isEmpty() ? 0 : data.get(0).size());
+		log.info("init dataset" + data);
+	}
+
+	public LabeledDataSet subDataSet(int fromIndex, int toIndex) {
+		List<Example> subData = data.subList(fromIndex, toIndex);
+		return new LabeledDataSet(subData);
+	}
 }

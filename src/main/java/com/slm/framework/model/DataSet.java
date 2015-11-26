@@ -19,4 +19,6 @@ public abstract class DataSet {
 	public void setRowNum(int rowNum) {
 		this.rowNum = rowNum;
 	}
+
+	public abstract DataSet subDataSet(int fromIndex, int toIndex);
 }
