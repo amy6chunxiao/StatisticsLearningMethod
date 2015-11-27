@@ -14,7 +14,7 @@ public class DataSplitController {
 	// 训练集测试集比例，默认比例0.7
 	private double ratio = 0.7;
 	// 切分方式,默认按顺序切分
-	private Enum<SplitMethods> spliter = SplitMethods.inorder;
+	private SplitMethods spliter = SplitMethods.inorder;
 
 	public DataSplitController() {
 
@@ -24,11 +24,11 @@ public class DataSplitController {
 		this.ratio = ratio;
 	}
 
-	public DataSplitController(Enum<SplitMethods> spliter) {
+	public DataSplitController(SplitMethods spliter) {
 		this.spliter = spliter;
 	}
 
-	public DataSplitController(Enum<SplitMethods> spliter, double ratio) {
+	public DataSplitController(SplitMethods spliter, double ratio) {
 		this.ratio = ratio;
 		this.spliter = spliter;
 	}
@@ -41,11 +41,11 @@ public class DataSplitController {
 		this.ratio = ratio;
 	}
 
-	public Enum<SplitMethods> getSpliter() {
+	public SplitMethods getSpliter() {
 		return spliter;
 	}
 
-	public void setSpliter(Enum<SplitMethods> spliter) {
+	public void setSpliter(SplitMethods spliter) {
 		this.spliter = spliter;
 	}
 

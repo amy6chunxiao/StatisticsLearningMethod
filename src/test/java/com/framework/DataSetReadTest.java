@@ -6,14 +6,15 @@ import com.slm.framework.factory.UnLabeledDataFactory;
 
 public class DataSetReadTest {
 	public static void main(String[] args) {
-		LabeledDataFactory factory1=new LabeledDataFactory();
+		LabeledDataFactory factory1 = new LabeledDataFactory();
 		try {
 			factory1.getData("G:\\laboratory\\algorithm\\dataset\\centers.txt");
+			factory1.getTrainSetAndValidSet();
 		} catch (ParseErrorException e) {
 			e.printStackTrace();
 		}
-		
-		UnLabeledDataFactory factory2=new UnLabeledDataFactory();
+
+		UnLabeledDataFactory factory2 = new UnLabeledDataFactory();
 		try {
 			factory2.getData("G:\\laboratory\\algorithm\\dataset\\wine.txt");
 		} catch (ParseErrorException e) {

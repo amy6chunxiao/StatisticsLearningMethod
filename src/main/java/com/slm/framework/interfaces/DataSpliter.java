@@ -12,7 +12,11 @@ import com.slm.framework.model.DataSplitController;
  * @created 2015年11月26日 下午3:00:52
  */
 public interface DataSpliter {
-	public DataSet[] split();
+	public void split();
 
-	public DataSet[] split(DataSplitController dsc);
+	public void split(DataSplitController dsc);
+
+	public DataSet getTrainSet();
+
+	public DataSet getValidSet();
 }

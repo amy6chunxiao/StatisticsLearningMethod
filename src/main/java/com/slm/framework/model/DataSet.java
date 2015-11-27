@@ -21,4 +21,6 @@ public abstract class DataSet {
 	}
 
 	public abstract DataSet subDataSet(int fromIndex, int toIndex);
+
+//	public abstract DataSet addDataSet(DataSet dataSet);
 }
