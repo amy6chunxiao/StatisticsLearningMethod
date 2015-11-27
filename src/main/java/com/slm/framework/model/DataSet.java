@@ -1,5 +1,7 @@
 package com.slm.framework.model;
 
+import java.util.List;
+
 public abstract class DataSet {
 	private int rowNum;
 	private int colNum;
@@ -22,5 +24,5 @@ public abstract class DataSet {
 
 	public abstract DataSet subDataSet(int fromIndex, int toIndex);
 
-//	public abstract DataSet addDataSet(DataSet dataSet);
+	public abstract List<? extends RealVector> getData();
 }

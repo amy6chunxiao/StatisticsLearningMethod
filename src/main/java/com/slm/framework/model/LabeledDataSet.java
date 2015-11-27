@@ -33,4 +33,10 @@ public class LabeledDataSet extends DataSet {
 		List<Example> subData = data.subList(fromIndex, toIndex);
 		return new LabeledDataSet(subData);
 	}
+
+	@Override
+	public List<Example> getData() {
+		return data;
+	}
+
 }

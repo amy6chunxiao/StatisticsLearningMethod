@@ -33,4 +33,9 @@ public class UnLabeledDataSet extends DataSet {
 		List<RealVector> subData = data.subList(fromIndex, toIndex);
 		return new UnLabeledDataSet(subData);
 	}
+
+	@Override
+	public List<RealVector> getData() {
+		return data;
+	}
 }
