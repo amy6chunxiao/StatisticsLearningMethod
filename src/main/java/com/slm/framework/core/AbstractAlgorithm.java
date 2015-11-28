@@ -1,4 +1,4 @@
-package com.slm.business.algorithm;
+package com.slm.framework.core;
 
 import com.slm.framework.exceptions.ParseErrorException;
 import com.slm.framework.factory.SLMFactory;

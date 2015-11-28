@@ -2,6 +2,7 @@ package com.slm.business.algorithm;
 
 import org.apache.log4j.Logger;
 
+import com.slm.framework.core.AbstractAlgorithm;
 import com.slm.framework.exceptions.DataErrorFormatException;
 import com.slm.framework.model.DataSet;
 import com.slm.framework.model.Example;

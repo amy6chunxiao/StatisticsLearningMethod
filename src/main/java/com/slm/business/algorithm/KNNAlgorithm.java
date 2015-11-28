@@ -1,5 +1,7 @@
 package com.slm.business.algorithm;
 
-public class KNNAlgorithm {
+import com.slm.framework.core.AbstractAlgorithm;
 
+public class KNNAlgorithm extends AbstractAlgorithm{
+	
 }
