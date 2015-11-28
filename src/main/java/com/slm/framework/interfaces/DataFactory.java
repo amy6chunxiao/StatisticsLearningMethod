@@ -6,10 +6,14 @@ import com.slm.framework.model.DataSplitController;
 
 public interface DataFactory {
 
+	public DataSet getTrainSet();
+
+	public DataSet getValidSet();
+
+	public void splitDataSet();
+
+	public void splitDataSet(DataSplitController dsc);
+
 	public DataSet getData(String sc) throws ParseErrorException;
-
-	public DataSet[] getTrainSetAndValidSet();
-
-	public DataSet[] getTrainSetAndValidSet(DataSplitController dsc);
 
 }

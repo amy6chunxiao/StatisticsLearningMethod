@@ -14,9 +14,9 @@ import com.slm.framework.model.DataSplitController;
 public abstract class AbstractDataFactory implements DataFactory {
 
 	private final Logger log = Logger.getLogger(AbstractDataFactory.class);
-	private DataSet trainSet;
-	private DataSet validSet;
-	private DataSet data;
+	protected DataSet trainSet;
+	protected DataSet validSet;
+	protected DataSet data;
 
 	private DataParser dataParser;
 	private DataSpliter dataSpliter;
@@ -29,24 +29,22 @@ public abstract class AbstractDataFactory implements DataFactory {
 		return data = dataParser.parse(fileReader.readFile(src));
 	}
 
-	public DataSet[] getTrainSetAndValidSet(DataSplitController dsc) {
+	public void splitDataSet(DataSplitController dsc) {
 		if (data == null)
 			log.error("data not found");
 		dataSpliter = new DataSpliterImpl(data);
 		dataSpliter.split(dsc);
 		trainSet = dataSpliter.getTrainSet();
 		validSet = dataSpliter.getValidSet();
-		return new DataSet[] { trainSet, validSet };
 	}
 
-	public DataSet[] getTrainSetAndValidSet() {
+	public void splitDataSet() {
 		if (data == null)
 			log.error("data not found");
 		dataSpliter = new DataSpliterImpl(data);
 		dataSpliter.split();
 		trainSet = dataSpliter.getTrainSet();
 		validSet = dataSpliter.getValidSet();
-		return new DataSet[] { trainSet, validSet };
 	}
 
 	public DataSpliter getDataSpliter() {
@@ -60,5 +58,11 @@ public abstract class AbstractDataFactory implements DataFactory {
 	public void setDataParser(DataParser dataParser) {
 		this.dataParser = dataParser;
 	}
+
+	public abstract DataSet getTrainSet();
+
+	public abstract DataSet getValidSet();
+
+	public abstract DataSet getData();
 
 }

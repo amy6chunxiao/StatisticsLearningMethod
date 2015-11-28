@@ -2,13 +2,17 @@ package com.slm.framework.core;
 
 import java.util.Random;
 
+import org.apache.log4j.Logger;
+
 import com.slm.framework.common.SplitMethods;
+import com.slm.framework.factory.AbstractDataFactory;
 import com.slm.framework.interfaces.DataSpliter;
 import com.slm.framework.model.DataSet;
 import com.slm.framework.model.DataSplitController;
 
 public class DataSpliterImpl implements DataSpliter {
 
+	private final Logger log = Logger.getLogger(DataSpliterImpl.class);
 	private int dataSize;
 	private int splitSize;
 	private double ratio;
@@ -42,6 +46,9 @@ public class DataSpliterImpl implements DataSpliter {
 			inorderSplit();
 		else
 			randomThenInorderSplit();
+		log.info("splitting..........split way is" + this);
+		log.info("trainset is" + trainSet);
+		log.info("validset is" + validSet);
 	}
 
 	private void randomSplit() {
@@ -75,6 +82,12 @@ public class DataSpliterImpl implements DataSpliter {
 
 	public void setValidSet(DataSet validSet) {
 		this.validSet = validSet;
+	}
+
+	@Override
+	public String toString() {
+		return "DataSpliterImpl [ratio=" + ratio + ", splitMethod="
+				+ splitMethod + "]";
 	}
 
 }

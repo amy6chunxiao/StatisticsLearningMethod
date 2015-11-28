@@ -2,7 +2,6 @@ package com.slm.framework.factory;
 
 import com.slm.framework.core.LabeledDataParser;
 import com.slm.framework.exceptions.ParseErrorException;
-import com.slm.framework.model.DataSplitController;
 import com.slm.framework.model.LabeledDataSet;
 
 public class LabeledDataFactory extends AbstractDataFactory {
@@ -17,13 +16,19 @@ public class LabeledDataFactory extends AbstractDataFactory {
 	}
 
 	@Override
-	public LabeledDataSet[] getTrainSetAndValidSet(DataSplitController dsc) {
-		return (LabeledDataSet[]) super.getTrainSetAndValidSet(dsc);
+	public LabeledDataSet getTrainSet() {
+		return (LabeledDataSet) trainSet;
 	}
 
 	@Override
-	public LabeledDataSet[] getTrainSetAndValidSet() {
-		return (LabeledDataSet[]) super.getTrainSetAndValidSet();
+	public LabeledDataSet getValidSet() {
+		return (LabeledDataSet) validSet;
 	}
+
+	@Override
+	public LabeledDataSet getData() {
+		return (LabeledDataSet) data;
+	}
+
 
 }

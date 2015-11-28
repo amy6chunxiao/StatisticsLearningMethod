@@ -9,7 +9,8 @@ public class DataSetReadTest {
 		LabeledDataFactory factory1 = new LabeledDataFactory();
 		try {
 			factory1.getData("G:\\laboratory\\algorithm\\dataset\\centers.txt");
-			factory1.getTrainSetAndValidSet();
+			factory1.getTrainSet();
+			factory1.getValidSet();
 		} catch (ParseErrorException e) {
 			e.printStackTrace();
 		}
