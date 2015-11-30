@@ -24,11 +24,12 @@ public abstract class AbstractDataFactory<T extends RealVector> implements
 	private DataSpliter<T> dataSpliter;
 	private FileReader fileReader = new FileReader();
 
-	public AbstractDataFactory() {
+	public void setDataParser(DataParser<T> dataParser) {
+		this.dataParser = dataParser;
 	}
 
-	public DataSet<T> getData(String src) throws ParseErrorException {
-		return data = dataParser.parse(fileReader.readFile(src));
+	public void setDataSpliter(DataSpliter<T> dataSpliter) {
+		this.dataSpliter = dataSpliter;
 	}
 
 	public void splitDataSet(DataSplitController dsc) {
@@ -53,12 +54,8 @@ public abstract class AbstractDataFactory<T extends RealVector> implements
 		return dataSpliter;
 	}
 
-	public void setDataSpliter(DataSpliter<T> dataSpliter) {
-		this.dataSpliter = dataSpliter;
-	}
-
-	public void setDataParser(DataParser<T> dataParser) {
-		this.dataParser = dataParser;
+	public DataSet<T> getData(String src) throws ParseErrorException {
+		return data = dataParser.parse(fileReader.readFile(src));
 	}
 
 	@Override
