@@ -10,29 +10,31 @@ import com.slm.framework.interfaces.DataSet;
 import com.slm.framework.interfaces.DataSpliter;
 import com.slm.framework.io.FileReader;
 import com.slm.framework.model.DataSplitController;
+import com.slm.framework.model.RealVector;
 
-public abstract class AbstractDataFactory implements DataFactory {
+public abstract class AbstractDataFactory<T extends RealVector> implements
+		DataFactory<T> {
 
 	private final Logger log = Logger.getLogger(AbstractDataFactory.class);
-	protected DataSet trainSet;
-	protected DataSet validSet;
-	protected DataSet data;
+	protected DataSet<T> trainSet;
+	protected DataSet<T> validSet;
+	protected DataSet<T> data;
 
-	private DataParser dataParser;
-	private DataSpliter dataSpliter;
+	private DataParser<T> dataParser;
+	private DataSpliter<T> dataSpliter;
 	private FileReader fileReader = new FileReader();
 
 	public AbstractDataFactory() {
 	}
 
-	public DataSet getData(String src) throws ParseErrorException {
+	public DataSet<T> getData(String src) throws ParseErrorException {
 		return data = dataParser.parse(fileReader.readFile(src));
 	}
 
 	public void splitDataSet(DataSplitController dsc) {
 		if (data == null)
 			log.error("data not found");
-		dataSpliter = new DataSpliterImpl(data);
+		dataSpliter = new DataSpliterImpl<T>(data);
 		dataSpliter.split(dsc);
 		trainSet = dataSpliter.getTrainSet();
 		validSet = dataSpliter.getValidSet();
@@ -41,28 +43,31 @@ public abstract class AbstractDataFactory implements DataFactory {
 	public void splitDataSet() {
 		if (data == null)
 			log.error("data not found");
-		dataSpliter = new DataSpliterImpl(data);
+		dataSpliter = new DataSpliterImpl<T>(data);
 		dataSpliter.split();
 		trainSet = dataSpliter.getTrainSet();
 		validSet = dataSpliter.getValidSet();
 	}
 
-	public DataSpliter getDataSpliter() {
+	public DataSpliter<T> getDataSpliter() {
 		return dataSpliter;
 	}
 
-	public void setDataSpliter(DataSpliter dataSpliter) {
+	public void setDataSpliter(DataSpliter<T> dataSpliter) {
 		this.dataSpliter = dataSpliter;
 	}
 
-	public void setDataParser(DataParser dataParser) {
+	public void setDataParser(DataParser<T> dataParser) {
 		this.dataParser = dataParser;
 	}
 
-	public abstract DataSet getTrainSet();
+	@Override
+	public DataSet<T> getTrainSet() {
+		return trainSet;
+	}
 
-	public abstract DataSet getValidSet();
-
-	public abstract DataSet getData();
-
+	@Override
+	public DataSet<T> getValidSet() {
+		return validSet;
+	}
 }

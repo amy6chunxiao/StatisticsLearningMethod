@@ -16,7 +16,7 @@ public interface DataSpliter<T extends RealVector> {
 
 	public void split(DataSplitController dsc);
 
-	public DataSet<? extends RealVector> getTrainSet();
+	public DataSet<T> getTrainSet();
 
-	public DataSet<? extends RealVector> getValidSet();
+	public DataSet<T> getValidSet();
 }
