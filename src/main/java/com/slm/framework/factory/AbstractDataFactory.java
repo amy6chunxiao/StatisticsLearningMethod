@@ -6,9 +6,9 @@ import com.slm.framework.core.DataSpliterImpl;
 import com.slm.framework.exceptions.ParseErrorException;
 import com.slm.framework.interfaces.DataFactory;
 import com.slm.framework.interfaces.DataParser;
+import com.slm.framework.interfaces.DataSet;
 import com.slm.framework.interfaces.DataSpliter;
 import com.slm.framework.io.FileReader;
-import com.slm.framework.model.DataSet;
 import com.slm.framework.model.DataSplitController;
 
 public abstract class AbstractDataFactory implements DataFactory {

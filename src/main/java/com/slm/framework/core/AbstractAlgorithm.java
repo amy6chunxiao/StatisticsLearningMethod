@@ -4,7 +4,7 @@ import com.slm.framework.exceptions.ParseErrorException;
 import com.slm.framework.factory.SLMFactory;
 import com.slm.framework.interfaces.Algorithm;
 import com.slm.framework.interfaces.DataFactory;
-import com.slm.framework.model.DataSet;
+import com.slm.framework.interfaces.DataSet;
 import com.slm.framework.model.DataSplitController;
 
 public class AbstractAlgorithm implements Algorithm {

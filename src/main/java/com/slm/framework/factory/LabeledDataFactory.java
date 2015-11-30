@@ -2,7 +2,7 @@ package com.slm.framework.factory;
 
 import com.slm.framework.core.LabeledDataParser;
 import com.slm.framework.exceptions.ParseErrorException;
-import com.slm.framework.model.LabeledDataSet;
+import com.slm.framework.model.RealDataSet;
 
 public class LabeledDataFactory extends AbstractDataFactory {
 
@@ -11,23 +11,23 @@ public class LabeledDataFactory extends AbstractDataFactory {
 	}
 
 	@Override
-	public LabeledDataSet getData(String src) throws ParseErrorException {
-		return (LabeledDataSet) super.getData(src);
+	public RealDataSet getData(String src) throws ParseErrorException {
+		return (RealDataSet) super.getData(src);
 	}
 
 	@Override
-	public LabeledDataSet getTrainSet() {
-		return (LabeledDataSet) trainSet;
+	public RealDataSet getTrainSet() {
+		return (RealDataSet) trainSet;
 	}
 
 	@Override
-	public LabeledDataSet getValidSet() {
-		return (LabeledDataSet) validSet;
+	public RealDataSet getValidSet() {
+		return (RealDataSet) validSet;
 	}
 
 	@Override
-	public LabeledDataSet getData() {
-		return (LabeledDataSet) data;
+	public RealDataSet getData() {
+		return (RealDataSet) data;
 	}
 
 

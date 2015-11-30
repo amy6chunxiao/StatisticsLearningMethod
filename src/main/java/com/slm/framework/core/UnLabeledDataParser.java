@@ -6,16 +6,17 @@ import java.util.List;
 import com.slm.framework.common.NumberFormatConverter;
 import com.slm.framework.exceptions.ParseErrorException;
 import com.slm.framework.interfaces.DataParser;
+import com.slm.framework.interfaces.DataSet;
 import com.slm.framework.io.Data;
-import com.slm.framework.model.DataSet;
+import com.slm.framework.model.RealDataSet;
 import com.slm.framework.model.RealVector;
-import com.slm.framework.model.UnLabeledDataSet;
 
-public class UnLabeledDataParser implements DataParser {
+public class UnLabeledDataParser implements DataParser<RealVector> {
 
-	private DataSet dataSet;
+	private DataSet<RealVector> dataSet;
+
 	@Override
-	public DataSet parse(String[] data) throws ParseErrorException {
+	public DataSet<RealVector> parse(String[] data) throws ParseErrorException {
 		List<RealVector> realVectors = new ArrayList<>();
 		for (String strData : data) {
 			String[] datas = strData.split(Data.dataSeparator);
@@ -27,7 +28,7 @@ public class UnLabeledDataParser implements DataParser {
 			RealVector realVector = new RealVector(doubleD);
 			realVectors.add(realVector);
 		}
-		dataSet= new UnLabeledDataSet(realVectors);
+		dataSet = new RealDataSet<RealVector>(realVectors);
 		return dataSet;
 	}
 

@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 import com.slm.framework.core.AbstractAlgorithm;
 import com.slm.framework.exceptions.DataErrorFormatException;
-import com.slm.framework.model.DataSet;
+import com.slm.framework.interfaces.DataSet;
 import com.slm.framework.model.Example;
 import com.slm.framework.model.RealVector;
 
@@ -12,7 +12,7 @@ public class PerceptronAlgorithm extends AbstractAlgorithm {
 
 	private final Logger log = Logger.getLogger(PerceptronAlgorithm.class);
 
-	public void run(DataSet data, double... args)
+	public void run(DataSet<Example> data, double... args)
 			throws DataErrorFormatException {
 		if (args.length != 1)
 			throw new DataErrorFormatException("please input three parameters");
@@ -22,12 +22,9 @@ public class PerceptronAlgorithm extends AbstractAlgorithm {
 		RealVector w = new RealVector(data.getColNum());
 		int count = 0;
 		while (true) {
-			for (RealVector tmpX : data.getData()) {
+			for (Example tmpX : data.getData()) {
 				String tmpLabel = null;
-				if (tmpX instanceof Example) {
-					tmpLabel = ((Example) tmpX).getLabel();
-				} else
-					log.error("the format of data is wrong");
+				tmpLabel = tmpX.getLabel();
 
 				double yi = mapYiToNum(tmpLabel);
 				if (yi * (w.product(tmpX) + b) <= 0) {

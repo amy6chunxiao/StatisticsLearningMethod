@@ -2,7 +2,7 @@ package com.slm.framework.factory;
 
 import com.slm.framework.core.UnLabeledDataParser;
 import com.slm.framework.exceptions.ParseErrorException;
-import com.slm.framework.model.UnLabeledDataSet;
+import com.slm.framework.interfaces.DataSet;
 
 public class UnLabeledDataFactory extends AbstractDataFactory {
 
@@ -11,23 +11,18 @@ public class UnLabeledDataFactory extends AbstractDataFactory {
 	}
 
 	@Override
-	public UnLabeledDataSet getData(String src) throws ParseErrorException {
-		return (UnLabeledDataSet) super.getData(src);
+	public DataSet getTrainSet() {
+		return null;
 	}
 
 	@Override
-	public UnLabeledDataSet getTrainSet() {
-		return (UnLabeledDataSet) trainSet;
+	public DataSet getValidSet() {
+		return null;
 	}
 
 	@Override
-	public UnLabeledDataSet getValidSet() {
-		return (UnLabeledDataSet) trainSet;
-	}
-
-	@Override
-	public UnLabeledDataSet getData() {
-		return (UnLabeledDataSet) data;
+	public DataSet getData() {
+		return null;
 	}
 
 }

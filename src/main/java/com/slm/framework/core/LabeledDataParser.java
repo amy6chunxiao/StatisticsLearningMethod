@@ -6,16 +6,17 @@ import java.util.List;
 import com.slm.framework.common.NumberFormatConverter;
 import com.slm.framework.exceptions.ParseErrorException;
 import com.slm.framework.interfaces.DataParser;
+import com.slm.framework.interfaces.DataSet;
 import com.slm.framework.io.Data;
-import com.slm.framework.model.DataSet;
 import com.slm.framework.model.Example;
-import com.slm.framework.model.LabeledDataSet;
+import com.slm.framework.model.RealDataSet;
 
-public class LabeledDataParser implements DataParser {
+public class LabeledDataParser implements DataParser<Example> {
 
-	private DataSet dataSet;
+	private DataSet<Example> dataSet;
+
 	@Override
-	public DataSet parse(String[] data) throws ParseErrorException {
+	public DataSet<Example> parse(String[] data) throws ParseErrorException {
 		List<Example> examples = new ArrayList<>();
 		for (String strData : data) {
 			String[] datasAndLabel = strData.split(Data.labelSeparator);
@@ -29,7 +30,7 @@ public class LabeledDataParser implements DataParser {
 			Example example = new Example(doubleD, label);
 			examples.add(example);
 		}
-		dataSet = new LabeledDataSet(examples);
+		dataSet = new RealDataSet<Example>(examples);
 		return dataSet;
 	}
 }

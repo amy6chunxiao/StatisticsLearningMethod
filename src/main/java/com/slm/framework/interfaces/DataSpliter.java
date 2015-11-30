@@ -1,7 +1,7 @@
 package com.slm.framework.interfaces;
 
-import com.slm.framework.model.DataSet;
 import com.slm.framework.model.DataSplitController;
+import com.slm.framework.model.RealVector;
 
 /**
  * 
@@ -11,12 +11,12 @@ import com.slm.framework.model.DataSplitController;
  * @author liucx
  * @created 2015年11月26日 下午3:00:52
  */
-public interface DataSpliter {
+public interface DataSpliter<T extends RealVector> {
 	public void split();
 
 	public void split(DataSplitController dsc);
 
-	public DataSet getTrainSet();
+	public DataSet<? extends RealVector> getTrainSet();
 
-	public DataSet getValidSet();
+	public DataSet<? extends RealVector> getValidSet();
 }
