@@ -8,6 +8,7 @@ public class PerceptionTest {
 		PerceptronAlgorithm pa=new PerceptronAlgorithm();
 		try {
 			pa.getData("G:\\laboratory\\algorithm\\dataset\\centers.txt");
+			pa.splitDataSet();
 		} catch (ParseErrorException e) {
 			e.printStackTrace();
 		}

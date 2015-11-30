@@ -45,4 +45,9 @@ public class RealDataSet<T extends RealVector> extends AbstractDataSet<T> {
 		return data.iterator();
 	}
 
+	@Override
+	public String toString() {
+		return "RealDataSet [data=" + data + "]";
+	}
+
 }
