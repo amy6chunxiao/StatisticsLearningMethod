@@ -6,32 +6,28 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.slm.framework.exceptions.DataErrorFormatException;
+import com.slm.framework.interfaces.Vector;
 
-public class RealVector {
+public class RealVector implements Vector<Double> {
 	private final Logger log = Logger.getLogger(RealVector.class);
 	private List<Double> data;
 	private int size;
 
-	public RealVector(double[] data) {
-		this.data = new ArrayList<>();
-		this.size = data.length;
-		for (double d : data) {
-			this.data.add(d);
-		}
-	}
-
-	public RealVector(List<Double> data) {
-		this(data, data.size());
-	}
-
-	public RealVector(List<Double> data, int size) {
-		this.data = data;
-		this.size = size;
-	}
-
 	public RealVector(int size) {
 		this.size = size;
 		toAllZero();
+	}
+
+	public RealVector(List<Double> data) {
+		this.data = data;
+	}
+
+	public RealVector(double[] data) {
+		this.data = new ArrayList<>();
+		for (double d : data) {
+			this.data.add(d);
+		}
+		this.size = this.data.size();
 	}
 
 	public int size() {
@@ -123,4 +119,5 @@ public class RealVector {
 	public String toString() {
 		return "RealVector [data=" + data + "]";
 	}
+
 }

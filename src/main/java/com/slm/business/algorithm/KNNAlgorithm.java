@@ -11,6 +11,8 @@ import com.business.model.KNNNode;
 import com.slm.framework.common.Distance;
 import com.slm.framework.core.AbstractAlgorithm;
 import com.slm.framework.exceptions.DataErrorFormatException;
+import com.slm.framework.interfaces.DataSet;
+import com.slm.framework.model.Example;
 import com.slm.framework.model.RealVector;
 
 public class KNNAlgorithm extends AbstractAlgorithm {
@@ -37,7 +39,8 @@ public class KNNAlgorithm extends AbstractAlgorithm {
 		Collections.sort(points);
 	}
 
-	public String getClassResult() {
+	public String run(DataSet<Example> trainSet, DataSet<Example> validSet,
+			double... args) {
 		for (int i = 0; i < k; i++) {
 			KNNNode tmp = points.get(i);
 			List<KNNNode> mapList;
