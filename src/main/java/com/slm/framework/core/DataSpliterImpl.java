@@ -8,9 +8,8 @@ import com.slm.framework.common.SplitMethods;
 import com.slm.framework.interfaces.DataSet;
 import com.slm.framework.interfaces.DataSpliter;
 import com.slm.framework.model.DataSplitController;
-import com.slm.framework.model.RealVector;
 
-public class DataSpliterImpl<T extends RealVector> implements DataSpliter<T> {
+public class DataSpliterImpl<T> implements DataSpliter<T> {
 
 	private final Logger log = Logger.getLogger(DataSpliterImpl.class);
 	private int dataSize;

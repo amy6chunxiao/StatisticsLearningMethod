@@ -25,7 +25,7 @@ public class LabeledDataParser implements DataParser<Example> {
 				throw new ParseErrorException();
 
 			String[] datas = datasAndLabel[0].split(Data.dataSeparator);
-			String label = datasAndLabel[1];
+			String label = datasAndLabel[1];	
 			double[] doubleD = NumberFormatConverter.StringArrayToDouble(datas);
 			Example example = new Example(doubleD, label);
 			examples.add(example);

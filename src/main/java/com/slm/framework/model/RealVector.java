@@ -8,6 +8,14 @@ import org.apache.log4j.Logger;
 import com.slm.framework.exceptions.DataErrorFormatException;
 import com.slm.framework.interfaces.Vector;
 
+/**
+ * 
+ * Title: RealVector.java
+ * 
+ * @description:纯数字的一行数据
+ * @author liucx
+ * @created 2015年12月1日 下午3:28:09
+ */
 public class RealVector implements Vector<Double> {
 	private final Logger log = Logger.getLogger(RealVector.class);
 	private List<Double> data;

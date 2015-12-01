@@ -12,8 +12,7 @@ import com.slm.framework.io.FileReader;
 import com.slm.framework.model.DataSplitController;
 import com.slm.framework.model.RealVector;
 
-public abstract class AbstractDataFactory<T extends RealVector> implements
-		DataFactory<T> {
+public abstract class AbstractDataFactory<T> implements DataFactory<T> {
 
 	private final Logger log = Logger.getLogger(AbstractDataFactory.class);
 	protected DataSet<T> trainSet;

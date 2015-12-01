@@ -6,9 +6,22 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-public class RealDataSet<T extends RealVector> extends AbstractDataSet<T> {
+import com.slm.framework.interfaces.DataSet;
+import com.slm.framework.interfaces.Vector;
+
+/**
+ * 
+ * Title: RealDataSet.java
+ * 
+ * @description:数据集
+ * @author liucx
+ * @created 2015年12月1日 下午3:28:39
+ */
+public class RealDataSet<T extends Vector<?>> implements DataSet<T> {
 	private final Logger log = Logger.getLogger(RealDataSet.class);
 	private List<T> data;
+	private int rowNum;
+	private int colNum;
 
 	public RealDataSet(List<T> data) {
 		this.data = data;
@@ -25,9 +38,8 @@ public class RealDataSet<T extends RealVector> extends AbstractDataSet<T> {
 	}
 
 	private void setRowColNum() {
-		setRowNum(data.size());
-		setColNum(data.isEmpty() ? 0 : data.get(0).size());
-		log.info("init dataset" + data);
+		setRowNum(data == null ? 0 : data.size());
+		setColNum(data.get(0) == null ? 0 : data.get(0).size());
 	}
 
 	public RealDataSet<T> subDataSet(int fromIndex, int toIndex) {
@@ -48,6 +60,26 @@ public class RealDataSet<T extends RealVector> extends AbstractDataSet<T> {
 	@Override
 	public String toString() {
 		return "RealDataSet [data=" + data + "]";
+	}
+
+	@Override
+	public int getRowNum() {
+		return 0;
+	}
+
+	@Override
+	public void setRowNum(int rowNum) {
+		this.rowNum = rowNum;
+	}
+
+	@Override
+	public int getColNum() {
+		return colNum;
+	}
+
+	@Override
+	public void setColNum(int colNum) {
+		this.colNum = colNum;
 	}
 
 }
