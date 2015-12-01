@@ -13,7 +13,7 @@ import com.slm.framework.interfaces.Vector;
  * 
  * Title: RealDataSet.java
  * 
- * @description:数据集
+ * @description:数据集 包含{@link Vector}类型的一组数据
  * @author liucx
  * @created 2015年12月1日 下午3:28:39
  */
@@ -39,7 +39,8 @@ public class RealDataSet<T extends Vector<?>> implements DataSet<T> {
 
 	private void setRowColNum() {
 		setRowNum(data == null ? 0 : data.size());
-		setColNum(data.get(0) == null ? 0 : data.get(0).size());
+		setColNum(data.isEmpty() ? 0 : (data.get(0) == null ? 0 : data.get(0)
+				.size()));
 	}
 
 	public RealDataSet<T> subDataSet(int fromIndex, int toIndex) {

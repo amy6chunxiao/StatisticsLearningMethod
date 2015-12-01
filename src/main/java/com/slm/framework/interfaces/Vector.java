@@ -10,4 +10,6 @@ public interface Vector<T> {
 
 	public int size();
 
+	public T get(int index);
+
 }

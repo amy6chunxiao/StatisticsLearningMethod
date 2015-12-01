@@ -128,4 +128,9 @@ public class RealVector implements Vector<Double> {
 		return "RealVector [data=" + data + "]";
 	}
 
+	@Override
+	public Double get(int index) {
+		return data.get(index);
+	}
+
 }

@@ -10,7 +10,6 @@ import com.slm.framework.interfaces.DataSet;
 import com.slm.framework.interfaces.DataSpliter;
 import com.slm.framework.io.FileReader;
 import com.slm.framework.model.DataSplitController;
-import com.slm.framework.model.RealVector;
 
 public abstract class AbstractDataFactory<T> implements DataFactory<T> {
 

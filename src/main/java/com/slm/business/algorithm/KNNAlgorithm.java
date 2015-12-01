@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.business.model.KNNNode;
+import com.slm.business.model.KNNNode;
 import com.slm.framework.common.Distance;
 import com.slm.framework.core.AbstractAlgorithm;
 import com.slm.framework.exceptions.DataErrorFormatException;

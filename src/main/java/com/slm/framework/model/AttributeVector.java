@@ -45,4 +45,9 @@ public class AttributeVector implements Vector<String> {
 		return size;
 	}
 
+	@Override
+	public String get(int index) {
+		return attributes.get(index);
+	}
+
 }

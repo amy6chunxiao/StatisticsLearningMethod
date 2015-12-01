@@ -1,4 +1,4 @@
-package com.business.model;
+package com.slm.business.model;
 
 import com.slm.framework.model.Example;
 
