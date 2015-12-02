@@ -26,11 +26,11 @@ public class KDTreeAlgorithm {
 			KDTreeComparator comparator = new KDTreeComparator(i);
 			cp.add(comparator);
 		}
-		build(root, data, 0);
+		buildTree(root, data, 0);
 		tree = new KDTree(root);
 	}
 
-	public void build(BinaryTreeNode<RealVector> root,
+	public void buildTree(BinaryTreeNode<RealVector> root,
 			DataSet<RealVector> data, int depth) {
 		if (data.getRowNum() == 0)
 			return;
@@ -49,8 +49,8 @@ public class KDTreeAlgorithm {
 				data.getRowNum());
 
 		root = new BinaryTreeNode<RealVector>(data.get(index));
-		build(root.getLeftChild(), leftData, depth);
-		build(root.getRightChild(), rightData, depth);
+		buildTree(root.getLeftChild(), leftData, depth);
+		buildTree(root.getRightChild(), rightData, depth);
 
 	}
 }
