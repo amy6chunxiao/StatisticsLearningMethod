@@ -10,6 +10,8 @@ public interface DataSet<T> {
 
 	public Iterator<T> iterator();
 
+	public T get(int index);
+
 	public int getRowNum();
 
 	public void setRowNum(int rowNum);
@@ -18,4 +20,5 @@ public interface DataSet<T> {
 
 	public void setColNum(int colNum);
 
+	public boolean isEmpty();
 }

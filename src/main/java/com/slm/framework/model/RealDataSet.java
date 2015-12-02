@@ -83,4 +83,14 @@ public class RealDataSet<T extends Vector<?>> implements DataSet<T> {
 		this.colNum = colNum;
 	}
 
+	@Override
+	public boolean isEmpty() {
+		return data.isEmpty();
+	}
+
+	@Override
+	public T get(int index) {
+		return data.get(index);
+	}
+
 }
