@@ -13,6 +13,10 @@ public class BinaryTreeNode<T> {
 	BinaryTreeNode<T> leftChild;
 	BinaryTreeNode<T> rightChild;
 
+	public BinaryTreeNode(T data) {
+		this.data = data;
+	}
+
 	public T getData() {
 		return data;
 	}

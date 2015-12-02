@@ -65,7 +65,7 @@ public class RealDataSet<T extends Vector<?>> implements DataSet<T> {
 
 	@Override
 	public int getRowNum() {
-		return 0;
+		return rowNum;
 	}
 
 	@Override

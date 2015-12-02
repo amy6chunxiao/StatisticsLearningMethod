@@ -1,5 +1,7 @@
 package com.slm.business.model;
 
+import com.slm.framework.model.BinaryTree;
+import com.slm.framework.model.BinaryTreeNode;
 import com.slm.framework.model.RealVector;
 
 public class KDTree extends BinaryTree<RealVector> {

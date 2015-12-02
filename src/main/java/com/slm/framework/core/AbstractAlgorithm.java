@@ -8,7 +8,7 @@ import com.slm.framework.interfaces.DataSet;
 import com.slm.framework.model.DataSplitController;
 
 public class AbstractAlgorithm implements Algorithm {
-	private DataFactory factory = SLMFactory.getLDataFactoryInstance();
+	private DataFactory factory = SLMFactory.getUnLabeledDataFactory();
 
 	@Override
 	public DataSet getData(String sc) throws ParseErrorException {

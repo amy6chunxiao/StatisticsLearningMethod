@@ -1,4 +1,5 @@
-package com.slm.business.model;
+package com.slm.framework.model;
+
 
 public abstract class BinaryTree<T> {
 	protected BinaryTreeNode<T> root;
