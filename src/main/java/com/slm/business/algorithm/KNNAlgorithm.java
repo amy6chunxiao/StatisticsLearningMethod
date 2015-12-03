@@ -20,27 +20,26 @@ public class KNNAlgorithm extends AbstractAlgorithm {
 	private List<KNNNode> points;
 	private Map<String, List<KNNNode>> nearstPoints;
 
-	public void init(double k) {
-		this.k = k;
-		nearstPoints = new HashMap<>();
+	public KNNAlgorithm(DataSet<Example> trainSet) {
+		points = new ArrayList<>();
+		for (Example example : trainSet.getData()) {
+			points.add((KNNNode) example);
+		}
 	}
 
-	public void run(RealVector realVector, double... args)
+	public String run(RealVector realVector, double... args)
 			throws DataErrorFormatException {
+
+		// 找到距离最近的k个点
 		init(args[0]);
 		for (KNNNode knnNode : points) {
 			double distance = Distance.EuclideanDistance(knnNode, realVector);
 			knnNode.setDistance(distance);
 		}
-		getKNearestNode();
-	}
-
-	public void getKNearestNode() {
 		Collections.sort(points);
-	}
 
-	public String run(DataSet<Example> trainSet, DataSet<Example> validSet,
-			double... args) {
+		// 将最近的k个点按照类别分类
+		// 统计出现次数最多的类别
 		for (int i = 0; i < k; i++) {
 			KNNNode tmp = points.get(i);
 			List<KNNNode> mapList;
@@ -62,4 +61,10 @@ public class KNNAlgorithm extends AbstractAlgorithm {
 		}
 		return maxNumKey;
 	}
+
+	private void init(double k) {
+		this.k = k;
+		nearstPoints = new HashMap<>();
+	}
+
 }
