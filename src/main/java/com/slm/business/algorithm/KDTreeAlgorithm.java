@@ -15,7 +15,7 @@ import com.slm.framework.model.RealVector;
 
 public class KDTreeAlgorithm extends AbstractAlgorithm {
 	private final Logger log = Logger.getLogger(KDTreeAlgorithm.class);
-	public KDTree tree;
+	private KDTree tree;
 	private int dimension;
 	private BinaryTreeNode<RealVector> root;
 	private ArrayList<KDTreeComparator> cp;

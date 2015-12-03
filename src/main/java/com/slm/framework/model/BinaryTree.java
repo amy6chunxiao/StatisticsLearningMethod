@@ -1,6 +1,5 @@
 package com.slm.framework.model;
 
-
 public abstract class BinaryTree<T> {
 	protected BinaryTreeNode<T> root;
 
@@ -89,14 +88,6 @@ public abstract class BinaryTree<T> {
 		}
 	}
 
-	public abstract BinaryTreeNode<T> getMinValue(BinaryTreeNode<T> root);
-
-	public abstract BinaryTreeNode<T> getMaxValue(BinaryTreeNode<T> root);
-
-	public abstract BinaryTreeNode<T> find(T k, boolean isIterative);
-
-	public abstract void insert(BinaryTreeNode<T> root, BinaryTreeNode<T> node);
-
-	public abstract void delete(BinaryTreeNode<T> node);
+	public abstract BinaryTreeNode<T> find(T k);
 
 }
