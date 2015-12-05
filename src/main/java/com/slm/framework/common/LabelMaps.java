@@ -11,6 +11,7 @@ import com.slm.framework.model.AttributeExample;
 public class LabelMaps {
 	public static Map<String, List<AttributeExample>> sortByLabel(
 			DataSet<AttributeExample> data) {
+
 		Map<String, List<AttributeExample>> map = new HashMap<>();
 		for (AttributeExample example : data.getData()) {
 			String label = example.getLabel();
