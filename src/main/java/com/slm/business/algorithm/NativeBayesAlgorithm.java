@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import com.slm.framework.common.LabelMaps;
 import com.slm.framework.core.AbstractAlgorithm;
 import com.slm.framework.interfaces.DataSet;
 import com.slm.framework.model.AttributeExample;
@@ -40,14 +41,7 @@ public class NativeBayesAlgorithm extends AbstractAlgorithm {
 	 * @param data
 	 */
 	private void init(DataSet<AttributeExample> data) {
-		for (AttributeExample example : data.getData()) {
-			String label = example.getLabel();
-			List<AttributeExample> list = labelOfExample.get(label);
-			if (list == null)
-				list = new ArrayList<>();
-			list.add(example);
-			labelOfExample.put(example.getLabel(), list);
-		}
+		LabelMaps.sortByLabel(data);
 	}
 
 	private void countPrioProb() {
