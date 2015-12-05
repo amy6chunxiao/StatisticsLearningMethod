@@ -11,20 +11,21 @@ import com.slm.framework.model.DesignTreeNode;
 public class DesignTreeAlgorithm {
 	private DataSet<AttributeExample> data;
 
-	private double entropy;
-
 	public DesignTreeAlgorithm(DataSet<AttributeExample> data) {
 		this.data = data;
 	}
 
-	public void countEntropy(DataSet<AttributeExample> examples) {
+	public double countEntropy(DataSet<AttributeExample> examples) {
+		
 		Map<String, List<AttributeExample>> labelToAttribute = LabelMaps
 				.sortByLabel(examples);
+		double entropy = 0;
 		for (String str : labelToAttribute.keySet()) {
 			double probable = labelToAttribute.get(str).size()
 					/ (double) data.getRowNum();
 			entropy += -probable * Math.log(probable);
 		}
+		return entropy;
 	}
 
 	/**
@@ -36,7 +37,7 @@ public class DesignTreeAlgorithm {
 	 */
 	public void bulidDesignTree(DataSet<AttributeExample> examples,
 			DesignTreeNode root) {
-
+		
 	}
 
 	public double countInfoGain(int dimension) {
