@@ -4,10 +4,9 @@ import java.util.List;
 
 public class DesignTreeNode {
 	private List<DesignTreeNode> children;
-	private String name;
+	private int index;
 	private String attribute;
 
-	
 	public List<DesignTreeNode> getChildren() {
 		return children;
 	}
@@ -16,20 +15,20 @@ public class DesignTreeNode {
 		this.children = children;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getAttribute() {
 		return attribute;
 	}
 
 	public void setAttribute(String attribute) {
 		this.attribute = attribute;
+	}
+
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
 	}
 
 }
