@@ -27,22 +27,25 @@ public class DesignTreeAlgorithm {
 	public void bulidDesignTree(DataSet<AttributeExample> examples,
 			DesignTreeNode root) {
 
-		List<Double> attributeInfoGain = new ArrayList<>();
+		// 找到信息增益最大的特征
+		double maxInfoGain = 0;
+		Map<String, Map<String, Integer>> maxMap = null;
 		InfoGain infoGain = new InfoGain(examples);
 		for (int i = 0; i < examples.getData().size(); i++) {
 			Map<String, Map<String, Integer>> map = LabelMaps
 					.sortByKthAttribute(examples, i);
 
-			double entropy = infoGain.countEntropy();
-			double mutualInfo = infoGain.countMutualInfo(map);
-			attributeInfoGain.add(entropy - mutualInfo);
+			double infoGainNum = infoGain.countEntropy()
+					- infoGain.countMutualInfo(map);
+			if (infoGainNum > maxInfoGain) {
+				maxInfoGain = infoGainNum;
+				maxMap = map;
+			}
 		}
+		
+		
+		DesignTreeNode node = new DesignTreeNode();
+		node.setIndex(0);
 
-		double maxNum = 0;
-		for (Double d : attributeInfoGain) {
-			if (d > maxNum)
-				maxNum = d;
-		}
 	}
-
 }
